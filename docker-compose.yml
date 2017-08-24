@@ -1,0 +1,20 @@
+version: '2'
+
+ services:
+   posgres:
+    image: 'posgres-imagen'
+    deploy: ./posgres/.
+    container_name:'psqlalpine-prn335'
+    enviroment:
+     -POSGRES_USER: mortal2017
+     -POSGRES_PASSWORD: prn335
+     -POSGRES_DB: post
+    port:
+     -'5432:5432'
+    volumes:
+     -database:/var/lib/posgresql/data
+
+  payaraserver:
+    image: payara-image
+    build: ./payara/.
+    container_name: 'payara-prn335'

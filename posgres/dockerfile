@@ -1,0 +1,8 @@
+ FROM posgresql:9.6.3-alpine
+
+ ENTRYPOINT ["/docker-entrypoint.sh"]
+
+ADD posts.sql /docker-entrypoint -initdb./post.sql
+
+EXPOSE 5432
+CMD ["postgres"]
